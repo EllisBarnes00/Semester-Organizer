@@ -19,14 +19,23 @@ Class* get_class_info() {
 void create_directory(Class *c, char *year) {
 	// allocate memory for the whole strint './year/semester/class/'
 	char *directory_tmp = malloc(sizeof(char) * 40);
-	sprintf(directory_tmp, "./%s/%s/%s/", year, c->semester, c->class_name);
-	//printf("test %s\n", directory_tmp);
+	sprintf(directory_tmp, "%s/", year);
 
-	struct stat st = {0};
-	if(stat(directory_tmp, &st) == -1) {
-		mkdir(directory_tmp, 0700);
-	} else {
-		printf("Directory already exists.\n");
+	// Make the directory for the year first
+	if(mkdir(directory_tmp, S_IRUSR | S_IWUSR | S_IXUSR) != -1) {
+		printf("%s created\n", directory_tmp);
+	}
+
+	// Make the directory for the semester next
+	sprintf(directory_tmp, "%s/%s/", year, c->semester);
+	if(mkdir(directory_tmp, S_IRUSR | S_IWUSR | S_IXUSR) != -1) {
+		printf("%s created\n", directory_tmp);
+	}
+
+	// Make the Directory for the class itself
+	sprintf(directory_tmp, "%s/%s/%s/", year, c->semester, c->class_name);
+	if(mkdir(directory_tmp, S_IRUSR | S_IWUSR | S_IXUSR) != -1) {
+		printf("%s created\n", directory_tmp);
 	}
 
 	free(directory_tmp);	
@@ -34,8 +43,10 @@ void create_directory(Class *c, char *year) {
 
 void print_choices() {
 	printf(
-		"1.\tAdd class.\n"
-		"2.\tExit\n"
+		"================\n"
+		"1. Add Class.\n"
+		"2. Exit Program.\n"
+		"================\n"
 	);
 	printf("> ");
 }

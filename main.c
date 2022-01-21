@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <sys/stat.h> // directory manipulation
+#include <string.h>
 #include "class.h"
 
 int main() {
@@ -16,8 +17,8 @@ int main() {
 				Class *c = malloc(sizeof(c));
 				c = get_class_info();
 				create_directory(c, year);
-				free(c);
 
+				free(c);
 				print_choices();
 				break;
 			}
