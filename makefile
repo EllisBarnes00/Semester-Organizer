@@ -1,5 +1,5 @@
 CC := gcc
-OBJS := main.c
+OBJS := main.c class.c
 COMPILER_FLAGS := -Wall -Wextra -pedantic -std=c11
 LINKER_FLAGS :=
 OBJ_NAME := SemesterOrganizer
