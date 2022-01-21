@@ -1,21 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <sys/stat.h> // directory manipulation
-#include <string.h>
 #include "class.h"
 
 int main() {
 	printf("Year: ");
 	char year[4];
-	scanf("%s", &year);
+	scanf("%4s", &year);
 
 	print_choices(); 
 	char choice;
 	while((choice = getchar()) != EOF) {
 		switch(choice) {
 			case '1': {
-				Class *c = malloc(sizeof(c));
-				c = get_class_info();
+				Class *c = get_class_info();
 				create_directory(c, year);
 
 				free(c);
@@ -28,7 +24,6 @@ int main() {
 			}
 		}
 	}
-
 
 	return 0;
 }
