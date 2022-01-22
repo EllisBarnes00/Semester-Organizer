@@ -19,8 +19,20 @@ int main() {
 				print_choices();
 				break;
 			}
-			case '2': { 
+
+			// Change the year
+			case '2': {
+				printf("Year: ");
+				scanf("%4s", &year);
+				print_choices();
+				break;
+			}
+
+			case '3': { 
 				exit(0);
+				break;
+			}
+			default: {
 				break;
 			}
 		}

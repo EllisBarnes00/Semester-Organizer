@@ -9,7 +9,7 @@ The purpose of this project was for making my semester folders OneDrive my colle
 
 ## TODO
 - [ ] Add the ability to manage the folders being added
-- [ ] Add the ability to change the year
+- [x] Add the ability to change the year
 - [ ] Different folder structures for things that have different requirements (ex. Science does not have the same structure as History or English)
 - [ ] Make it cross-platform, currently only runs on Linux, but needs to run on Windows
 

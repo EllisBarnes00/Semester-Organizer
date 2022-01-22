@@ -62,6 +62,7 @@ void print_choices() {
 	printf(
 		"================\n"
 		"1. Add Class.\n"
+		"2. Change Year.\n"
 		"2. Exit Program.\n"
 		"================\n"
 	);
